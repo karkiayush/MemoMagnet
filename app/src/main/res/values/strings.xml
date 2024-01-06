@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NotesApp</string>
+    <string name="add_icon_description">Add notes icon</string>
+    <string name="add_note">Add Notes</string>
+    <string name="save_note">Save Notes</string>
+    <string name="title_hint">Title</string>
+    <string name="note_hint">Type Notes.....</string>
+</resources>
