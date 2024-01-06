@@ -45,6 +45,8 @@ class NotesDatabaseHelper(
 
     fun insertNote(noteContent: NoteContent) {
         val db = writableDatabase
+
+        /** ContentValues() class is used to store column that can be inserted or updated*/
         val values = ContentValues().apply {
             put(COLUMN_TITLE, noteContent.title)
             put(COLUMN_CONTENT, noteContent.noteDescription)
@@ -74,4 +76,44 @@ class NotesDatabaseHelper(
         db.close()
         return notesList
     }
+
+    fun deleteNote(id: Int) {
+        val query = "DELETE FROM $TABLE_NAME WHERE $COLUMN_ID=$id"
+        val db = writableDatabase
+        db.execSQL(query)
+        db.close()
+    }
+
+    fun updateNotes(note: NoteContent) {
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMN_TITLE, note.title)
+            put(COLUMN_CONTENT, note.noteDescription)
+        }
+
+        val whereClause = "$COLUMN_ID = ?"
+        val whereArgs = arrayOf(note.id.toString())
+
+        db.update(TABLE_NAME, values, whereClause, whereArgs)
+        db.close()
+    }
+
+    fun getNoteById(noteId: Int): NoteContent {
+        val db = readableDatabase
+        val query = "SELECT * FROM $TABLE_NAME WHERE $COLUMN_ID=$noteId"
+        val cursor = db.rawQuery(query, null)
+        //Moves the cursor to the first row of the result
+        cursor.moveToFirst()
+
+        val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+        val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
+        val content = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT))
+
+
+        cursor.close()
+        db.close()
+        return NoteContent(id, title, content)
+    }
+
+
 }
