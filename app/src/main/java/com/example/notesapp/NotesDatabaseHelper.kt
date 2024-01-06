@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.provider.ContactsContract.CommonDataKinds.Note
 
 /**
  * Here we will do 3 imp things:
@@ -51,5 +52,26 @@ class NotesDatabaseHelper(
         /**since nullColumnHack insert the empty row inside the table, that's why we have made the nullColumnHack as null*/
         db.insert(TABLE_NAME, null, values)
         db.close()
+    }
+
+    fun retreiveNote(): List<NoteContent> {
+        val notesList = mutableListOf<NoteContent>()
+        val db = readableDatabase
+        val query = "SELECT * FROM $TABLE_NAME"
+
+        /** For the execution of this query, we use raw query method and stores the result in the cursor variable*/
+        val cursor = db.rawQuery(query, null)
+
+        while (cursor.moveToNext()) {
+            val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+            val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
+            val content = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_CONTENT))
+
+            val note = NoteContent(id, title, content)
+            notesList.add(note)
+        }
+        cursor.close()
+        db.close()
+        return notesList
     }
 }
