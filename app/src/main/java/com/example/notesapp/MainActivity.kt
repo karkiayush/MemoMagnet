@@ -17,5 +17,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AddNote::class.java)
             startActivity(intent)
         }
+
+
     }
 }

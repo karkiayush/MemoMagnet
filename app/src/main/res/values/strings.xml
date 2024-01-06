@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">NotesApp</string>
     <string name="add_icon_description">Add notes icon</string>
+    <string name="note_heading">Notes</string>
     <string name="add_note">Add Notes</string>
     <string name="save_note">Save Notes</string>
     <string name="title_hint">Title</string>
     <string name="note_hint">Type Notes.....</string>
+    <string name="deleteIcon">delete notes</string>
+    <string name="editIcon">edit notes</string>
 </resources>

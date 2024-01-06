@@ -6,6 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/opensans"
+        android:text="@string/note_heading"
+        android:textColor="@color/lightgreen"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
 
     <!--Floating action button to add notes-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -14,9 +32,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:contentDescription="@string/add_icon_description"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"        android:src="@drawable/add_icon"
+        android:layout_marginBottom="10dp"
+        android:contentDescription="@string/add_icon_description"
+        android:src="@drawable/add_icon"
         app:backgroundTint="@color/lightgreen" />
 
 
