@@ -1,5 +1,6 @@
 package com.example.notesapp
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -47,8 +48,12 @@ class NotesAdapter(
         return notes.size
     }
 
-    fun refreshData() {
-
+    @SuppressLint("NotifyDataSetChanged")
+            /** refreshData function in NotesAdapter class is a custom method that we've added to facilitate updating the dataset and notifying the adapter that the data has changed. */
+    fun refreshData(newNotes: List<NoteContent>) {
+        notes = newNotes
+        /**notifyDataSetChanged(): This method is called to inform the attached RecyclerView that the dataset has changed. When you call this method, it triggers the onBindViewHolder method to be called for each visible item in the RecyclerView, allowing the adapter to rebind the updated data to the corresponding views.*/
+        notifyDataSetChanged()
     }
 
 }
