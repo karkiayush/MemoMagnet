@@ -18,6 +18,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/noteTitleId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/opensans"
@@ -28,6 +29,7 @@
                 tools:ignore="HardcodedText" />
 
             <TextView
+                android:id="@+id/noteContentId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
