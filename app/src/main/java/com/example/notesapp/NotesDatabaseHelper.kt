@@ -1,5 +1,6 @@
 package com.example.notesapp
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
@@ -22,7 +23,7 @@ class NotesDatabaseHelper(
 ) {
     companion object {
         private const val DATABASE_NAME = "notesapp.db"
-        private const val DATABASE_VERSION = "1"
+        private const val DATABASE_VERSION = 1
         private const val TABLE_NAME = "notestable"
         private const val COLUMN_ID = "id"
         private const val COLUMN_TITLE = "title"
@@ -41,7 +42,14 @@ class NotesDatabaseHelper(
         onCreate(db)
     }
 
-    fun insertNote(noteContent: NoteContent){
-
+    fun insertNote(noteContent: NoteContent) {
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMN_TITLE, noteContent.title)
+            put(COLUMN_CONTENT, noteContent.noteDescription)
+        }
+        /**since nullColumnHack insert the empty row inside the table, that's why we have made the nullColumnHack as null*/
+        db.insert(TABLE_NAME, null, values)
+        db.close()
     }
 }

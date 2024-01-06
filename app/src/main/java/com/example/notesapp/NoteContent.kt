@@ -1,3 +1,3 @@
 package com.example.notesapp
 
-data class NoteContent(val id: String, val title: String, val noteDescription: String)
+data class NoteContent(val id: Int, val title: String, val noteDescription: String)
