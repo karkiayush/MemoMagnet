@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NotesApp</string>
+    <string name="app_name">MemoMagnet</string>
     <string name="add_icon_description">Add notes icon</string>
     <string name="note_heading">Notes</string>
     <string name="add_note">Add Notes</string>
