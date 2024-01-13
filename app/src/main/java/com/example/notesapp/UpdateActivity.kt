@@ -2,6 +2,7 @@ package com.example.notesapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.notesapp.databinding.ActivityUpdateBinding
 
 class UpdateActivity : AppCompatActivity() {
@@ -29,6 +30,18 @@ class UpdateActivity : AppCompatActivity() {
 
         /**But if notes id is received, we need to know which notes was clicked and based on that info we gotta display the title and notes description*/
         val note: NoteContent = databaseHelper.getNoteById(noteId)
+        binding.updateNoteTitleId.setText(note.title)
+        binding.updateNoteContentId.setText(note.noteDescription)
+
+        binding.addDoneBtnId.setOnClickListener {
+            val newTitle = binding.updateNoteTitleId.text.toString()
+            val newNoteContent = binding.updateNoteContentId.text.toString()
+
+            val noteInstance = NoteContent(noteId, newTitle, newNoteContent)
+            databaseHelper.updateNotes(noteInstance)
+            finish()
+            Toast.makeText(this, "Note is updated", Toast.LENGTH_SHORT).show()
+        }
 
     }
 }
