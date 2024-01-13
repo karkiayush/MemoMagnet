@@ -43,6 +43,7 @@ MemoMagnet is an evolving project, and the my plans to implement additional feat
 - Improved user interface and user experience.
 - Integration with external services for extended functionality.
 - Publishing app in playstore.
+- Extending to apple ecosystem
 
 ## Contribution
 
