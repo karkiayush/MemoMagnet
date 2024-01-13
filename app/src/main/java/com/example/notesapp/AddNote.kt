@@ -25,8 +25,8 @@ class AddNote : AppCompatActivity() {
     }
 
     private fun addNotesTODB() {
-        val noteTitle = binding.addTitleId.text.toString()
-        val noteDescription = binding.addNoteId.text.toString()
+        val noteTitle = binding.addNoteTitleId.text.toString()
+        val noteDescription = binding.addNoteContentId.text.toString()
 
         val isNotEmpty = noteDescription.isNotEmpty() && noteTitle.isNotEmpty()
 

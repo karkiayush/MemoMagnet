@@ -11,7 +11,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/opensans"
-        android:text="@string/add_note"
+        android:text="@string/update_notes"
         android:textColor="@color/lightgreen"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -29,7 +29,7 @@
         android:src="@drawable/done_icon" />
 
     <EditText
-        android:id="@+id/addTitleId"
+        android:id="@+id/updateNoteTitleId"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginHorizontal="20dp"
@@ -45,7 +45,7 @@
         tools:ignore="Autofill,LabelFor" />
 
     <EditText
-        android:id="@+id/addNoteId"
+        android:id="@+id/updateNoteContentId"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="20dp"

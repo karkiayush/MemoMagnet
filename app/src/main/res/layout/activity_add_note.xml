@@ -11,13 +11,13 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/opensans"
-        android:text="@string/update_notes"
+        android:text="@string/add_note"
         android:textColor="@color/lightgreen"
         android:textSize="30sp"
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/updateSaveBtnId"
+        android:id="@+id/addDoneBtnId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -29,7 +29,7 @@
         android:src="@drawable/done_icon" />
 
     <EditText
-        android:id="@+id/updateNoteTitleId"
+        android:id="@+id/addNoteTitleId"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginHorizontal="20dp"
@@ -45,7 +45,7 @@
         tools:ignore="Autofill,LabelFor" />
 
     <EditText
-        android:id="@+id/updateNoteContentId"
+        android:id="@+id/addNoteContentId"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="20dp"
