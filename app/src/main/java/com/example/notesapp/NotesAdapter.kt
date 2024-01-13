@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Recycler
 
 /**
  * Here we'll be creating:
@@ -19,9 +19,11 @@ import androidx.recyclerview.widget.RecyclerView.Recycler
  * */
 class NotesAdapter(
     private var notes: List<NoteContent>,
-    /**Here the context represents the notes adpater*/
+    /**Here the context represents the notes adapter*/
     context: Context
 ) : RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
+
+    private val notesdb: NotesDatabaseHelper = NotesDatabaseHelper(context)
 
     class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titleTextView: TextView = itemView.findViewById(R.id.noteTitleId)
@@ -51,7 +53,9 @@ class NotesAdapter(
         }
 
         holder.deleteButton.setOnClickListener {
-
+            notesdb.deleteNote(note.id)
+            refreshData(notesdb.retreiveNote())
+            Toast.makeText(holder.itemView.context, "Note is deleted", Toast.LENGTH_SHORT).show()
         }
     }
 
