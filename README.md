@@ -47,6 +47,5 @@ MemoMagnet is an evolving project, and the my plans to implement additional feat
 ## Contribution
 
 Contributions to MemoMagnet are welcome! Feel free to submit issues, feature requests, or pull requests to help make MemoMagnet even better.
-
-Thank you for choosing MemoMagnet as your go-to note app. Happy note-taking!
+Happy coding folks 👋
 
